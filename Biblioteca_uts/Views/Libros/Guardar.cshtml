@@ -1,0 +1,66 @@
+﻿@model Biblioteca_uts.Models.LibrosModel
+
+@{
+    ViewData["Title"] = "Guardar";
+}
+<link href="~/css/regitro_libro.css" rel="stylesheet" />
+<section id="catalog">
+    <div class="container">
+
+        <center>
+
+            <div class="form-container">
+                <p class="title">REGISTRAR LIBRO</p>
+                <form class="form" asp-action="Guardar" asq-controller="LibrosModel" method="post">
+                    <!--ADQUISICION-->
+                    <div class="input-group1">
+                        <input type="number" name="No_Adquisicion" asp-for="No_Adquisicion" placeholder="N°Adquisicion" required>
+                    </div>
+                    <!--TITULO-->
+                    <div class="input-group1">
+                        <input type="text" name="Titulo" asp-for="Titulo" placeholder="Titulo" required>
+                    </div>
+                    <!--Fecha-->
+                    <div class="input-group1">
+                        <input type="date" asp-for="Fecha_adquisicion" name="Fecha_adquisicion" placeholder="Fecha_adquisicion">
+                    </div>
+                    <!--IBSM-->
+                    <div class="input-group1">
+                        <input type="text" name="IBSN" asp-for="Ibsn" placeholder="IBSN" required>
+                    </div>
+                    <!--Clasificacion-->
+                    <div class="input-group1">
+                        <input type="text" name="Clasificacion" asp-for="Clasificacion" placeholder="Clasificacion" required>
+                    </div>
+                    <!--Numero de estante-->
+                    <div class="input-group1">
+                        <input type="text" name="No_Estante" asp-for="No_Estante" placeholder="Estante" required>
+                    </div>
+                    <!--Cantidad-->
+                    <div class="input-group1">
+                        <input type="text" name="Cantidad" asp-for="Cantidad" placeholder="Cantidad" required>
+                    </div>
+                    <!--Estatus-->
+                    <div class="input-group1">
+                        <input type="text" name="Estatus" asp-for="Estatus" placeholder=" Estatus" required>
+                    </div>
+                    <!--Procedencia-->
+                    <div class="input-group1">
+                        <input type="text" name="Procedencia" asp-for="Procedencia" placeholder=" Procedencia" required>
+                    </div>
+                    <!--Factura-->
+                    <div class="input-group1">
+                        <input type="text" name="No_factura" asp-for="No_factura" placeholder="N°factura" required>
+                    </div>
+
+                    <!--boton de registro-->
+                    <br>
+                    <div class="col-md-4 mb-3">
+                        <button type="submit" class="sign">REGISTRAR</button>
+                    </div>
+
+                </form>
+            </div>
+        </center>
+    </div>
+</section>

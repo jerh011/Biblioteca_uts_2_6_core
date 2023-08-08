@@ -1,0 +1,52 @@
+﻿@model List<LibrosModel>;
+@{
+    ViewData["Title"] = "Listar";
+
+}
+<div class="card col-8">
+    <div class="card-header">
+        Lista de Libro
+    </div>
+    <div class="card-body">
+        <a asp-action="Guardar" asp-asp-controller="ContactoModel" class="btn btn-primary btn-sm">Crear nuevo</a>
+        <table class="table table-striped">
+            <thead>
+            <th>No_Adquisicion</th>
+            <th>Titulo</th>
+            <th>Fecha_adquisicion</th>
+            <th>Ibsn</th>
+            <th>Clasificacion</th>
+            <th>No_Estante</th>
+            <th>Cantidad</th>
+            <th>Estatus</th>
+            <th>Procedencia</th>
+            <th>No_factura</th>
+
+        </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.No_Adquisicion</td>
+                        <td>@item.Titulo</td>
+                        <td>@item.Fecha_adquisicion</td>
+                        <td>@item.Ibsn</td>
+                        <td>@item.Clasificacion</td>
+                        <td>@item.No_Estante</td>
+                        <td>@item.Cantidad</td>
+                        <td>@item.Estatus</td>
+                        <td>@item.Procedencia</td>
+                        <td>@item.No_factura</td>
+
+                        <td>
+                            <a asp-action="Editar" asp-asp-controller="ContactoModel" class="btn btn-primary btn-sm">Editar</a>
+                            <a asp-action="Eliminar" asp-asp-controller="ContactoModel" class="btn btn-primary btn-sm">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+
+    </div>
+

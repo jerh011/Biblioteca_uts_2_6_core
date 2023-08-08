@@ -1,0 +1,23 @@
+﻿@model LibrosModel;
+@{
+    ViewData["Title"] = "Eliminar";
+}
+<div class="card col-8">
+    <div class="card-header">
+        Eliminar contacto
+    </div>
+    <div class="card-body justyfy-content-center">
+        <form asp-action="Eliminar" asp-controller="LibrosModel" method="post">
+            <input asp-form="No_Adquisicion" type="hidden" class="form-control" />
+            <div class="alert alert-danger" role="alert">
+                ¿Desea eliminar el contacto:@Html.DisplayTextFor(n=>n.Titulo)?
+            </div>
+            <div class="col-md-4 mb-3">
+                <button type="submit" class="btn btn-danger mb-3 btn-sm">Eliminar</button>
+                <a asp-action="Listar" asp-controller="LibrosModel" class="btn btn-warning btn-sn">volver a la lista </a>
+            </div>
+        </form>
+
+    </div>
+
+</div>
