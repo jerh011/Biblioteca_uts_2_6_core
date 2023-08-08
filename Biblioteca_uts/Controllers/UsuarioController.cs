@@ -21,7 +21,7 @@ namespace Biblioteca_uts.Controllers
             return View();
         }
 
-        [HttpPost]
+        [HttpPost]//a
         public IActionResult Guardar(UsariosModels model)
         {
             var UsuarioCreado = _Usuario.GuardarUsuario(model);

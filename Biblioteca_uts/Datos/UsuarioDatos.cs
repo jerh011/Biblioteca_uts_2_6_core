@@ -50,7 +50,7 @@ namespace Biblioteca_uts.Datos
             {
                 conexion.Open();
                 SqlCommand cmd = new SqlCommand("Sp_Buscar_Usuario", conexion);
-                cmd.Parameters.AddWithValue("No_Adquisicion", Identificador);
+                cmd.Parameters.AddWithValue("Identificador", Identificador);
                 cmd.CommandType = CommandType.StoredProcedure;
                 using (var dr = cmd.ExecuteReader())
                 {
