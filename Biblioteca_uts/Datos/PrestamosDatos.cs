@@ -33,7 +33,7 @@ namespace Biblioteca_uts.Datos
             }
             return Lista;
         }
-        public PrestamosModels ObtenerLibro(int Identificador)
+        public PrestamosModels ObtenerPrestamo(int Identificador)
         {
             PrestamosModels _Prestamos = new PrestamosModels();
             var cn = new Conexion();
@@ -57,7 +57,7 @@ namespace Biblioteca_uts.Datos
             return _Prestamos;
         }
         //############################################################################
-        public bool GuardarLibro(PrestamosModels model)
+        public bool GuardarPrestamo(PrestamosModels model)
         {
             bool respuesta;
             try
@@ -75,7 +75,7 @@ namespace Biblioteca_uts.Datos
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
 
-                    cmd.ExecuteNonQuery();
+               
                 }
                 respuesta = true;
             }
@@ -87,7 +87,7 @@ namespace Biblioteca_uts.Datos
             return respuesta;
         }
 
-        public bool EditarLibro(PrestamosModels model)
+        public bool EditarPrestamo(PrestamosModels model)
         {
             bool respuesta;
             try
@@ -114,7 +114,7 @@ namespace Biblioteca_uts.Datos
             return respuesta;
         }
         /*####################################################*/
-        public bool EliminarLibro(int Identificador)
+        public bool EliminarPrestamo(int Identificador)
         {
             bool respuesta;
             try

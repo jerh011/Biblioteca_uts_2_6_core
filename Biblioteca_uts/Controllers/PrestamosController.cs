@@ -24,7 +24,7 @@ namespace Biblioteca_uts.Controllers
         [HttpPost]
         public IActionResult Guardar(PrestamosModels model)
         {
-            var UsuarioCreado = _prestamos.GuardarLibro(model);
+            var UsuarioCreado = _prestamos.GuardarPrestamo(model);
             if (UsuarioCreado)
             {
                 return RedirectToAction("Listar");
@@ -38,7 +38,7 @@ namespace Biblioteca_uts.Controllers
         //##############################
         public IActionResult Editar(int Identificador)
         {
-            PrestamosModels _contacto = _prestamos.ObtenerLibro(Identificador);
+            PrestamosModels _contacto = _prestamos.ObtenerPrestamo(Identificador);
             return View();
         }
 
@@ -50,7 +50,7 @@ namespace Biblioteca_uts.Controllers
             {
                 return View();
             }
-            var respuesta = _prestamos.EditarLibro(model);
+            var respuesta = _prestamos.EditarPrestamo(model);
             if (respuesta)
             {
                 return RedirectToAction("Listar");
@@ -63,7 +63,7 @@ namespace Biblioteca_uts.Controllers
 
         public IActionResult Eliminar(int Identificador)
         {
-            var _contacto = _prestamos.ObtenerLibro(Identificador);
+            var _contacto = _prestamos.ObtenerPrestamo(Identificador);
             return View(_contacto);
         }
 
@@ -74,7 +74,7 @@ namespace Biblioteca_uts.Controllers
             {
                 return View();
             }
-            var respuesta = _prestamos.EliminarLibro(model.Identificador);
+            var respuesta = _prestamos.EliminarPrestamo(model.Identificador);
             if (respuesta)
             {
                 return RedirectToAction("Listar");
