@@ -10,60 +10,60 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Editar" asq-controller="LibrosModel">
-            <div class="form-group">
-                <label asp-for="No_Adquisicion" class="control-label"></label>
-                <input asp-for="No_Adquisicion" class="form-control" />
-                <span asp-validation-for="No_Adquisicion" class="text-danger"></span>
-            </div>
+        <form asp-action="Editar" asq-controller="Libros">
+
+
+            <input asp-for="No_Adquisicion" type="hidden"  class="form-control" />
+              
+           
             <div class="form-group">
                 <label asp-for="Titulo" class="control-label"></label>
-                <input asp-for="Titulo" class="form-control" />
+                <input asp-for="Titulo" type="text" class="form-control" />
                 <span asp-validation-for="Titulo" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Fecha_adquisicion" class="control-label"></label>
-                <input asp-for="Fecha_adquisicion" class="form-control" />
+                <input asp-for="Fecha_adquisicion" type="text" class="form-control" />
                 <span asp-validation-for="Fecha_adquisicion" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Ibsn" class="control-label"></label>
-                <input asp-for="Ibsn" class="form-control" />
+                <input asp-for="Ibsn" type="text" class="form-control" />
                 <span asp-validation-for="Ibsn" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Clasificacion" class="control-label"></label>
-                <input asp-for="Clasificacion" class="form-control" />
+                <input asp-for="Clasificacion" type="text" class="form-control" />
                 <span asp-validation-for="Clasificacion" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="No_Estante" class="control-label"></label>
-                <input asp-for="No_Estante" class="form-control" />
+                <input asp-for="No_Estante" type="text" class="form-control" />
                 <span asp-validation-for="No_Estante" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Cantidad" class="control-label"></label>
-                <input asp-for="Cantidad" class="form-control" />
+                <input asp-for="Cantidad" type="text" class="form-control" />
                 <span asp-validation-for="Cantidad" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Estatus" class="control-label"></label>
-                <input asp-for="Estatus" class="form-control" />
+                <input asp-for="Estatus" type="text" class="form-control" />
                 <span asp-validation-for="Estatus" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Procedencia" class="control-label"></label>
-                <input asp-for="Procedencia" class="form-control" />
+                <input asp-for="Procedencia" type="text" class="form-control" />
                 <span asp-validation-for="Procedencia" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="No_factura" class="control-label"></label>
-                <input asp-for="No_factura" class="form-control" />
+                <input asp-for="No_factura" type="text" class="form-control" />
                 <span asp-validation-for="No_factura" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
-                <a asp-action="Listar" asp-controller="LibrosModel" class="btn btn-warning btn-sn">volver a la lista</a>
+                <a asp-action="Listar" asp-controller="Libros" class="btn btn-warning btn-sn">volver a la lista</a>
             </div>
         </form>
     </div>

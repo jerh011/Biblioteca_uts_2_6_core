@@ -1,0 +1,41 @@
+﻿@model List<PrestamosModels>;
+@{
+    ViewData["Title"] = "Listar";
+
+}
+<div class="card col-8">
+    <div class="card-header">
+        Lista de Prestamos
+    </div>
+    <div class="card-body">
+        <a asp-action="Guardar" asp-asp-controller="Prestamos" class="btn btn-primary btn-sm">Crear nuevo</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id_Prestamo</th>
+                    <th>Identificador</th>
+                    <th>Fecha_prestamo</th>
+                    <th>Fecha_devolucion</th>
+                    <th>No_Adquisicion</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id_Prestamo</td>
+                        <td>@item.Identificador</td>
+                        <td>@item.Fecha_prestamo</td>
+                        <td>@item.Fecha_devolucion</td>
+                        <td>@item.No_Adquisicion</td>
+                        <td>
+                            <a asp-action="Editar" asp-asp-controller="Prestamos" asp-route-Id_Prestamo="@item.Id_Prestamo" class="btn btn-primary btn-sm">Editar</a>
+                            <a asp-action="Eliminar" asp-asp-controller="Prestamos" asp-route-Id_Prestamo="@item.Id_Prestamo" class="btn btn-primary btn-sm">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+
+    </div>

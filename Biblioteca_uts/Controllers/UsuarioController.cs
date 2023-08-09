@@ -21,7 +21,7 @@ namespace Biblioteca_uts.Controllers
             return View();
         }
 
-        [HttpPost]//a
+        [HttpPost]
         public IActionResult Guardar(UsariosModels model)
         {
             var UsuarioCreado = _Usuario.GuardarUsuario(model);
@@ -60,26 +60,26 @@ namespace Biblioteca_uts.Controllers
                 return View();
             }
         }
-        //@model Biblioteca_uts.Models.LibrosModel
-        public IActionResult Eliminar(int No_Adquisicion)
+
+        public IActionResult Eliminar(int Identificador)
         {
-            var _contacto = _Usuario.ObtenerUsuario(No_Adquisicion);
+            var _contacto = _Usuario.ObtenerUsuario(Identificador);
             return View(_contacto);
         }
 
         [HttpPost]
-        public IActionResult Eliminar(LibrosModel model)
+        public IActionResult Eliminar(UsariosModels mode)
         {
-            /*  var respuesta = _LibrosDatos.EliminarLibro(model.IdContacto);
-              if (respuesta)
-              {
-                  return RedirectToAction("Listar");
-              }
-              else
-              {
+            var respuesta = _Usuario.EliminarUsuario(mode.Identificador);
+            if (respuesta)
+            {
+                return RedirectToAction("Listar");
+            }
+            else
+            {
+                return View();//ya que aregle el problemas borrarlo
+            }
 
-              }*/
-            return View();//ya que aregle el problemas borrarlo
         }
 
 

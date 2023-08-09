@@ -1,20 +1,20 @@
-﻿@model LibrosModel;
+﻿@model UsariosModels;
 @{
     ViewData["Title"] = "Eliminar";
 }
 <div class="card col-8">
     <div class="card-header">
-        Eliminar Libro
+        Eliminar contacto
     </div>
     <div class="card-body justyfy-content-center">
-        <form asp-action="Eliminar" asp-controller="Libros" method="post">
-            <input asp-for="No_Adquisicion" type="hidden" class="form-control" />
+        <form asp-action="Eliminar" asp-controller="Usuario" method="post">
+            <input asp-for="Identificador" type="hidden" class="form-control" />
             <div class="alert alert-danger" role="alert">
-                ¿Desea eliminar el Libro:@Html.DisplayTextFor(n=>n.Titulo)?
+                ¿Desea eliminar el contacto:@Html.DisplayTextFor(n=>n.Nombres)?
             </div>
             <div class="col-md-4 mb-3">
                 <button type="submit" class="btn btn-danger mb-3 btn-sm">Eliminar</button>
-                <a asp-action="Listar" asp-controller="Libros" class="btn btn-warning btn-sn">volver a la lista </a>
+                <a asp-action="Listar" asp-controller="Usuario" class="btn btn-warning btn-sn">volver a la lista </a>
             </div>
         </form>
 

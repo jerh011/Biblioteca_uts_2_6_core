@@ -1,17 +1,17 @@
-﻿using Biblioteca_uts.Models;
-using Biblioteca_uts.Datos;
+﻿using Biblioteca_uts.Datos;
+using Biblioteca_uts.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Biblioteca_uts.Controllers
 {
-    public class LibrosController : Controller
+    public class PrestamosController : Controller
     {
 
         //Datos/ContactoDatos
-        LibrosDatos _LibrosDatos = new LibrosDatos();
+        PrestamosDatos _prestamos = new PrestamosDatos();
         public IActionResult Listar()
         {
-            var lista = _LibrosDatos.Listar();
+            var lista = _prestamos.Listar();
 
             return View(lista);
         }
@@ -22,9 +22,9 @@ namespace Biblioteca_uts.Controllers
         }
 
         [HttpPost]
-        public IActionResult Guardar(LibrosModel model)
+        public IActionResult Guardar(PrestamosModels model)
         {
-            var UsuarioCreado = _LibrosDatos.GuardarLibro(model);
+            var UsuarioCreado = _prestamos.GuardarLibro(model);
             if (UsuarioCreado)
             {
                 return RedirectToAction("Listar");
@@ -36,21 +36,21 @@ namespace Biblioteca_uts.Controllers
 
         }
         //##############################
-        public IActionResult Editar(int No_Adquisicion)
+        public IActionResult Editar(int Identificador)
         {
-            LibrosModel _contacto = _LibrosDatos.ObtenerLibro(No_Adquisicion);
+            PrestamosModels _contacto = _prestamos.ObtenerLibro(Identificador);
             return View();
         }
 
         [HttpPost]
-        public IActionResult Editar(LibrosModel model)
+        public IActionResult Editar(PrestamosModels model)
         {
             //para obtener los datos que se editadoen del formulario y enviarlos  en la base de datos 
             if (!ModelState.IsValid)
             {
                 return View();
             }
-            var respuesta = _LibrosDatos.EditarLibro(model);
+            var respuesta = _prestamos.EditarLibro(model);
             if (respuesta)
             {
                 return RedirectToAction("Listar");
@@ -61,29 +61,29 @@ namespace Biblioteca_uts.Controllers
             }
         }
 
-        public IActionResult Eliminar(int No_Adquisicion)
+        public IActionResult Eliminar(int Identificador)
         {
-            var _contacto = _LibrosDatos.ObtenerLibro(No_Adquisicion);
+            var _contacto = _prestamos.ObtenerLibro(Identificador);
             return View(_contacto);
         }
 
         [HttpPost]
-        public IActionResult Eliminar(LibrosModel model)
+        public IActionResult Eliminar(PrestamosModels model)
         {
             if (ModelState.IsValid)
             {
                 return View();
             }
-             var respuesta = _LibrosDatos.EliminarLibro(model.No_Adquisicion);
-              if (respuesta)
-              {
-                  return RedirectToAction("Listar");
-              }
-              else
-              {
-            return View();//ya que aregle el problemas borrarlo
-              }
-            
+            var respuesta = _prestamos.EliminarLibro(model.Identificador);
+            if (respuesta)
+            {
+                return RedirectToAction("Listar");
+            }
+            else
+            {
+                return View();//ya que aregle el problemas borrarlo
+            }
+
         }
 
 

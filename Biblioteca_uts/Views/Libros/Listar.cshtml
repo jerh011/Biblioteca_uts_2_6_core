@@ -8,20 +8,21 @@
         Lista de Libro
     </div>
     <div class="card-body">
-        <a asp-action="Guardar" asp-asp-controller="LibrosModel" class="btn btn-primary btn-sm">Crear nuevo</a>
+        <a asp-action="Guardar" asp-asp-controller="Libros" class="btn btn-primary btn-sm">Crear nuevo</a>
         <table class="table table-striped">
             <thead>
-            <th>No_Adquisicion</th>
-            <th>Titulo</th>
-            <th>Fecha_adquisicion</th>
-            <th>Ibsn</th>
-            <th>Clasificacion</th>
-            <th>No_Estante</th>
-            <th>Cantidad</th>
-            <th>Estatus</th>
-            <th>Procedencia</th>
-            <th>No_factura</th>
-
+                <tr>
+                    <th>No_Adquisicion</th>
+                    <th>Titulo</th>
+                    <th>Fecha_adquisicion</th>
+                    <th>Ibsn</th>
+                    <th>Clasificacion</th>
+                    <th>No_Estante</th>
+                    <th>Cantidad</th>
+                    <th>Estatus</th>
+                    <th>Procedencia</th>
+                    <th>No_factura</th>
+                </tr>
         </thead>
             <tbody>
                 @foreach (var item in Model)
@@ -39,8 +40,8 @@
                         <td>@item.No_factura</td>
 
                         <td>
-                            <a asp-action="Editar" asp-asp-controller="ContactoModel" class="btn btn-primary btn-sm">Editar</a>
-                            <a asp-action="Eliminar" asp-asp-controller="ContactoModel" class="btn btn-primary btn-sm">Eliminar</a>
+                            <a asp-action="Editar" asp-asp-controller="Libros" asp-route-No_Adquisicion="@item.No_Adquisicion" class="btn btn-primary btn-sm">Editar</a>
+                            <a asp-action="Eliminar" asp-asp-controller="Libros" asp-route-No_Adquisicion="@item.No_Adquisicion" class="btn btn-primary btn-sm">Eliminar</a>
                         </td>
                     </tr>
                 }

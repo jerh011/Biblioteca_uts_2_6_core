@@ -74,7 +74,7 @@ namespace Biblioteca_uts.Datos
             }
             return Usuario;
         }
-        //############################################################################
+        //###########################################################################
         public bool GuardarUsuario(UsariosModels model)
         {
             bool respuesta;
@@ -143,7 +143,7 @@ namespace Biblioteca_uts.Datos
             return respuesta;
         }
         /*####################################################*/
-        public bool EliminarUsuario(UsariosModels model)
+        public bool EliminarUsuario(int Identificador)
         {
             bool respuesta;
             try
@@ -153,7 +153,7 @@ namespace Biblioteca_uts.Datos
                 {
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand("SP_Eliminar_Usuario", conexion);
-                    cmd.Parameters.AddWithValue("Identificador", model.Identificador);
+                    cmd.Parameters.AddWithValue("Identificador",Identificador);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }

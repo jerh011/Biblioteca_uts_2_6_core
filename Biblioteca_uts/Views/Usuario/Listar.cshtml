@@ -8,20 +8,21 @@
         Lista de Usuarios
     </div>
     <div class="card-body">
-        <a asp-action="Guardar" asp-asp-controller="UsariosModels" class="btn btn-primary btn-sm">Crear nuevo</a>
+        <a asp-action="Guardar" asp-asp-controller="Usuario" class="btn btn-primary btn-sm">Crear nuevo</a>
         <table class="table table-striped">
             <thead>
-            <th>Identificador</th>
-            <th>Nombres</th>
-            <th>ApePa</th>
-            <th>ApePa</th>
-            <th>Calle</th>
-            <th>Colonia</th>
-            <th>NroCasa</th>
-            <th>tipo</th>
-            <th>Contraseña</th>
-            <th>Usuario</th>
-
+                <tr>
+                    <th>Identificador</th>
+                    <th>Nombres</th>
+                    <th>ApePa</th>
+                    <th>ApePa</th>
+                    <th>Calle</th>
+                    <th>Colonia</th>
+                    <th>NroCasa</th>
+                    <th>tipo</th>
+                    <th>Contraseña</th>
+                    <th>Usuario</th>
+                </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
@@ -37,16 +38,16 @@
                         <td>@item.tipo</td>
                         <td>@item.Contraseña</td>
                         <td>@item.Usuario</td>
-                       
                         <td>
-                            <a asp-action="Editar" asp-asp-controller="ContactoModel" class="btn btn-primary btn-sm">Editar</a>
-                            <a asp-action="Eliminar" asp-asp-controller="ContactoModel" class="btn btn-primary btn-sm">Eliminar</a>
+                            <a asp-action="Editar" asp-controller="Usuario" asp-route-Identificador="@item.Identificador" class="btn btn-primary btn-sm">Editar</a>
+                            <a asp-action="Eliminar" asp-controller="Usuario" asp-route-Identificador="@item.Identificador" class="btn btn-primary btn-sm">Eliminar</a>
                         </td>
                     </tr>
                 }
             </tbody>
 
         </table>
+
 
     </div>
 

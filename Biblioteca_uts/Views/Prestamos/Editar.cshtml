@@ -1,0 +1,49 @@
+﻿@model Biblioteca_uts.Models.PrestamosModels
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<link href="~/css/regitro_libro.css" rel="stylesheet" />
+<h1>Editar</h1>
+
+<h4>Editar</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Editar" asq-controller="Prestamos">
+
+
+            <input asp-for="Id_Prestamo" type="hidden" class="form-control" />
+
+
+            <div class="form-group">
+                <label asp-for="Identificador" class="control-label"></label>
+                <input asp-for="Identificador" type="text" class="form-control" />
+                <span asp-validation-for="Identificador" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fecha_prestamo" class="control-label"></label>
+                <input asp-for="Fecha_prestamo" type="date" class="form-control" />
+                <span asp-validation-for="Fecha_prestamo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fecha_devolucion" class="control-label"></label>
+                <input asp-for="Fecha_devolucion" type="text" class="form-control" />
+                <span asp-validation-for="Fecha_devolucion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="No_Adquisicion" class="control-label"></label>
+                <input asp-for="No_Adquisicion" type="text" class="form-control" />
+                <span asp-validation-for="No_Adquisicion" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-action="Listar" asp-controller="Prestamos" class="btn btn-warning btn-sn">volver a la lista</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+

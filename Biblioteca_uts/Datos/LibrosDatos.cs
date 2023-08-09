@@ -139,7 +139,7 @@ namespace Biblioteca_uts.Datos
             return respuesta;
         }
         /*####################################################*/
-        public bool EliminarLibro(LibrosModel model)
+        public bool EliminarLibro(int No_Adquisicion)
         {
             bool respuesta;
             try
@@ -149,7 +149,7 @@ namespace Biblioteca_uts.Datos
                 {
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand("SP_Eliminar_Libro", conexion);
-                    cmd.Parameters.AddWithValue("No_Adquisicion", model.No_Adquisicion);
+                    cmd.Parameters.AddWithValue("No_Adquisicion",No_Adquisicion);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
