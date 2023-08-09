@@ -39,7 +39,7 @@ namespace Biblioteca_uts.Controllers
         public IActionResult Editar(int No_Adquisicion)
         {
             LibrosModel _contacto = _LibrosDatos.ObtenerLibro(No_Adquisicion);
-            return View();
+            return View(_contacto);
         }
 
         [HttpPost]
@@ -70,10 +70,7 @@ namespace Biblioteca_uts.Controllers
         [HttpPost]
         public IActionResult Eliminar(LibrosModel model)
         {
-            if (ModelState.IsValid)
-            {
-                return View();
-            }
+         
              var respuesta = _LibrosDatos.EliminarLibro(model.No_Adquisicion);
               if (respuesta)
               {

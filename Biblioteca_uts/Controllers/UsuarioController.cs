@@ -39,7 +39,7 @@ namespace Biblioteca_uts.Controllers
         public IActionResult Editar(int Identificador)
         {
             UsariosModels _contacto = _Usuario.ObtenerUsuario(Identificador);
-            return View();
+            return View(_contacto);
         }
 
         [HttpPost]
