@@ -66,3 +66,25 @@ go
 	)
 	end
 	go
+--###########################################################################################--
+
+create view View_Prestamo 
+as
+select Us.Identificador,Us.Nombres,Us.ApePa,Pre.Fecha_prestamo,Pre.Fecha_devolucion,
+Lib.Titulo,Lib.Clasificacion,Lib.IBSN from  Usuario as Us
+inner join Prestamo as Pre
+on Us.Identificador=Pre.Identificador 
+inner join Libro as Lib
+on Pre.No_Adquisicion=Lib.No_Adquisicion
+
+go
+
+create procedure Sp_Prestamo
+ as 
+ select * from View_Prestamo
+ 
+ exec Sp_Prestamo
+--###########################################################################################--
+
+
+
