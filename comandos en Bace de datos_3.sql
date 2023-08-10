@@ -10,11 +10,11 @@ create procedure Sp_Modificar_Prestamos
 	)
 	as BEGIN
 	 update Prestamo set 
-	@Identificador=Identificador,
-	@Fecha_prestamo=Fecha_prestamo,
-	@Fecha_devolucion=Fecha_devolucion,
-	@No_Adquisicion=No_Adquisicion
-	where Id_Prestamo = @Id_Prestamo
+	Identificador=@Identificador,
+	Fecha_prestamo=@Fecha_prestamo,
+	Fecha_devolucion=@Fecha_devolucion,
+	No_Adquisicion=@No_Adquisicion
+	where Id_Prestamo =@Id_Prestamo
 	end
 	go
 --###########################################################################################--
@@ -51,7 +51,6 @@ go
 --###########################################################################################--
 	create procedure SP_Registrar_Prestamos
 (
-	@Id_Prestamo INT ,
 	@Identificador int ,
 	@Fecha_prestamo date,
 	@Fecha_devolucion date ,
