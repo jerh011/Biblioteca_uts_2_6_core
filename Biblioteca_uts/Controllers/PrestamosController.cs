@@ -36,20 +36,17 @@ namespace Biblioteca_uts.Controllers
 
         }
         //##############################
-        public IActionResult Editar(int Identificador)
+        public IActionResult Editar(int IdPrestamo)
         {
-            PrestamosModels _contacto = _prestamos.ObtenerPrestamo(Identificador);
-            return View();
+            PrestamosModels _contacto = _prestamos.ObtenerPrestamo(IdPrestamo);
+            return View(_contacto);
         }
 
         [HttpPost]
         public IActionResult Editar(PrestamosModels model)
         {
             //para obtener los datos que se editadoen del formulario y enviarlos  en la base de datos 
-            if (!ModelState.IsValid)
-            {
-                return View();
-            }
+           
             var respuesta = _prestamos.EditarPrestamo(model);
             if (respuesta)
             {
@@ -61,20 +58,17 @@ namespace Biblioteca_uts.Controllers
             }
         }
 
-        public IActionResult Eliminar(int Identificador)
+        public IActionResult Eliminar(int IdPrestamo)
         {
-            var _contacto = _prestamos.ObtenerPrestamo(Identificador);
+            var _contacto = _prestamos.ObtenerPrestamo(IdPrestamo);
             return View(_contacto);
         }
 
         [HttpPost]
         public IActionResult Eliminar(PrestamosModels model)
         {
-            if (ModelState.IsValid)
-            {
-                return View();
-            }
-            var respuesta = _prestamos.EliminarPrestamo(model.Identificador);
+            
+            var respuesta = _prestamos.EliminarPrestamo(model.IdPrestamo);
             if (respuesta)
             {
                 return RedirectToAction("Listar");

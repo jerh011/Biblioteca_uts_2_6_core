@@ -2,7 +2,7 @@
 {
     public class PrestamosModels
     {
-        public int Id_Prestamo { get; set; }
+        public int IdPrestamo { get; set; }
        public int Identificador { get; set; }
        public DateTime Fecha_prestamo { get; set; }
         public DateTime Fecha_devolucion { get; set; }

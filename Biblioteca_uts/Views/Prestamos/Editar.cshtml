@@ -14,7 +14,7 @@
         <form asp-action="Editar" asq-controller="Prestamos">
 
 
-            <input asp-for="Id_Prestamo" type="hidden" class="form-control" />
+            <input asp-for="IdPrestamo" type="hidden" class="form-control" />
 
 
             <div class="form-group">
@@ -29,7 +29,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Fecha_devolucion" class="control-label"></label>
-                <input asp-for="Fecha_devolucion" type="text" class="form-control" />
+                <input asp-for="Fecha_devolucion" type="date" class="form-control" />
                 <span asp-validation-for="Fecha_devolucion" class="text-danger"></span>
             </div>
             <div class="form-group">

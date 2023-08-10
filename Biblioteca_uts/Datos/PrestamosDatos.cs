@@ -22,6 +22,7 @@ namespace Biblioteca_uts.Datos
                     {
                         Lista.Add(new PrestamosModels()
                         {
+                            IdPrestamo = Convert.ToInt32(dr["Id_Prestamo"]),
                             Identificador = Convert.ToInt32(dr["Identificador"]),
                             Fecha_prestamo = dr.GetDateTime(dr.GetOrdinal("Fecha_prestamo")),
                             Fecha_devolucion = dr.GetDateTime(dr.GetOrdinal("Fecha_devolucion")),
@@ -33,7 +34,7 @@ namespace Biblioteca_uts.Datos
             }
             return Lista;
         }
-        public PrestamosModels ObtenerPrestamo(int Identificador)
+        public PrestamosModels ObtenerPrestamo(int IdPrestamo)
         {
             PrestamosModels _Prestamos = new PrestamosModels();
             var cn = new Conexion();
@@ -41,12 +42,13 @@ namespace Biblioteca_uts.Datos
             {
                 conexion.Open();
                 SqlCommand cmd = new SqlCommand("Sp_Buscar_Prestamos", conexion);
-                cmd.Parameters.AddWithValue("No_Adquisicion", Identificador);
+                cmd.Parameters.AddWithValue("Id_Prestamo", IdPrestamo);
                 cmd.CommandType = CommandType.StoredProcedure;
                 using (var dr = cmd.ExecuteReader())
                 {
                     while (dr.Read())
                     {
+                        _Prestamos.IdPrestamo = Convert.ToInt32(dr["Id_Prestamo"]);
                         _Prestamos.Identificador = Convert.ToInt32(dr["Identificador"]);
                         _Prestamos.Fecha_prestamo = dr.GetDateTime(dr.GetOrdinal("Fecha_prestamo"));
                         _Prestamos.Fecha_devolucion = dr.GetDateTime(dr.GetOrdinal("Fecha_devolucion"));
@@ -97,10 +99,11 @@ namespace Biblioteca_uts.Datos
                 {
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand("Sp_Modificar_Prestamos", conexion);
+                    cmd.Parameters.AddWithValue("Id_Prestamo", model.IdPrestamo);
                     cmd.Parameters.AddWithValue("Identificador", model.Identificador);
                     cmd.Parameters.AddWithValue("Fecha_prestamo", model.Fecha_prestamo);
                     cmd.Parameters.AddWithValue("Fecha_devolucion", model.Fecha_prestamo);
-                    cmd.Parameters.AddWithValue("No_Adquisicion", model.Fecha_prestamo);
+                    cmd.Parameters.AddWithValue("No_Adquisicion", model.No_Adquisicion);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
@@ -114,7 +117,7 @@ namespace Biblioteca_uts.Datos
             return respuesta;
         }
         /*####################################################*/
-        public bool EliminarPrestamo(int Identificador)
+        public bool EliminarPrestamo(int IdPrestamo)
         {
             bool respuesta;
             try
@@ -124,7 +127,7 @@ namespace Biblioteca_uts.Datos
                 {
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand("SP_Eliminar_Prestamos", conexion);
-                    cmd.Parameters.AddWithValue("Identificador", Identificador);
+                    cmd.Parameters.AddWithValue("Id_Prestamo", IdPrestamo);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
