@@ -70,7 +70,7 @@ go
 
 create view View_Prestamo 
 as
-select Us.Identificador,Us.Nombres,Us.ApePa,Pre.Fecha_prestamo,Pre.Fecha_devolucion,
+select Pre.Id_Prestamo, Us.Identificador,Us.Nombres,Us.ApePa,Pre.Fecha_prestamo,Pre.Fecha_devolucion,
 Lib.Titulo,Lib.Clasificacion,Lib.IBSN from  Usuario as Us
 inner join Prestamo as Pre
 on Us.Identificador=Pre.Identificador 
@@ -84,6 +84,8 @@ create procedure Sp_Prestamo
  select * from View_Prestamo
  
  exec Sp_Prestamo
+
+ select * from Prestamo
 --###########################################################################################--
 
 
