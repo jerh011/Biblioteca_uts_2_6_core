@@ -70,17 +70,17 @@ namespace Biblioteca_uts.Controllers
         [HttpPost]
         public IActionResult Eliminar(LibrosModel model)
         {
-         
-             var respuesta = _LibrosDatos.EliminarLibro(model.No_Adquisicion);
-              if (respuesta)
-              {
-                  return RedirectToAction("Listar");
-              }
-              else
-              {
-            return View();//ya que aregle el problemas borrarlo
-              }
-            
+
+            var respuesta = _LibrosDatos.EliminarLibro(model.No_Adquisicion);
+            if (respuesta)
+            {
+                return RedirectToAction("Listar");
+            }
+            else
+            {
+                return View();//ya que aregle el problemas borrarlo
+            }
+
         }
 
 

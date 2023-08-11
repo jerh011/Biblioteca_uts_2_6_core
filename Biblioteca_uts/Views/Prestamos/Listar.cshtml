@@ -1,4 +1,5 @@
-﻿@model List<PrestamosModels>;
+﻿@model List<CMT_PrestamoModels>;
+
 @{
     ViewData["Title"] = "Listar";
 
@@ -12,25 +13,38 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Id Prestamo</th>
                     <th>Identificador</th>
-                    <th>Fecha_prestamo</th>
-                    <th>Fecha_devolucion</th>
-                    <th>No_Adquisicion</th>
+                    <th>Nombres</th>
+                    <th>Apellido Paterno</th>
+                    <th>Fecha Prestamo</th>
+                    <th>Fecha Devolucion</th>
+                    <th>Titulo del Libro</th>
+                    <th>Clasificacion</th>
+                    <th>IBSN</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td>@item.IdPrestamo</td>
-                        <td>@item.Identificador</td>
-                        <td>@item.Fecha_prestamo</td>
-                        <td>@item.Fecha_devolucion</td>
-                        <td>@item.No_Adquisicion</td>
+                        <td>@item.Us_Identificador</td>
+                        <td>@item.Us_Nombres</td>
+                        <td>@item.Us_ApePa</td>
+                        <td>@item.Pre_Fecha_prestamo</td>
+                        <td>@item.Pre_Fecha_devolucion</td>
+                        <td>@item.Lib_Titulo</td>
+                        <td>@item.Lib_Clasificacion</td>
+                        <td>@item.Lib_IBSN</td>
+                     
                         <td>
-                            <a asp-action="Editar" asp-asp-controller="Prestamos" asp-route-IdPrestamo="@item.IdPrestamo" class="btn btn-primary btn-sm">Editar</a>
-                            <a asp-action="Eliminar" asp-asp-controller="Prestamos" asp-route-IdPrestamo="@item.IdPrestamo" class="btn btn-primary btn-sm">Eliminar</a>
+                            <!--
+                            
+      
+                           
+
+                            -->
+                            <a asp-action="Editar" asp-asp-controller="Prestamos" asp-route-IdPrestamo="@item.Pre_Id_Prestamo" class="btn btn-primary btn-sm">Editar</a>
+                            <a asp-action="Eliminar" asp-asp-controller="Prestamos" asp-route-IdPrestamo="@item.Pre_Id_Prestamo" class="btn btn-primary btn-sm">Eliminar</a>
                         </td>
                     </tr>
                 }

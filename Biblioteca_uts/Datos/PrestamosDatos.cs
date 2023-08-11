@@ -6,7 +6,7 @@ namespace Biblioteca_uts.Datos
 {
     public class PrestamosDatos
     {
-        public List<PrestamosModels> Listar()
+     /*   public List<PrestamosModels> Listar()
         {
             List<PrestamosModels> Lista = new List<PrestamosModels>();
             var cn = new Conexion();
@@ -31,9 +31,47 @@ namespace Biblioteca_uts.Datos
                         );
                     }
                 }
+
+               
+                 
             }
             return Lista;
         }
+        */
+        public  List<CMT_PrestamoModels> Listar2()
+        {
+            List<CMT_PrestamoModels> Lista = new List<CMT_PrestamoModels>();
+            var cn = new Conexion();
+
+            using (var conexion = new SqlConnection(cn.getCadenaSql()))
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("Sp_Prestamo", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                using (var dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        Lista.Add(new CMT_PrestamoModels()
+                        {
+                            Pre_Id_Prestamo= Convert.ToInt32(dr["Id_Prestamo"]),
+                            Us_Identificador = Convert.ToInt32(dr["Identificador"]),
+                            Us_Nombres = dr["Nombres"].ToString(),
+                            Us_ApePa = dr["ApePa"].ToString(),
+                            Pre_Fecha_prestamo = dr.GetDateTime(dr.GetOrdinal("Fecha_prestamo")),
+                            Pre_Fecha_devolucion = dr.GetDateTime(dr.GetOrdinal("Fecha_devolucion")),
+                            Lib_Titulo = dr["Titulo"].ToString(),
+                            Lib_Clasificacion = dr["Clasificacion"].ToString(),
+                            Lib_IBSN = dr["IBSN"].ToString(),
+                        });
+                    }
+                }
+            }
+            return Lista;
+        }
+
+
+
         public PrestamosModels ObtenerPrestamo(int IdPrestamo)
         {
             PrestamosModels _Prestamos = new PrestamosModels();

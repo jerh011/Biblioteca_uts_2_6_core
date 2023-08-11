@@ -9,9 +9,10 @@ namespace Biblioteca_uts.Controllers
 
         //Datos/ContactoDatos
         PrestamosDatos _prestamos = new PrestamosDatos();
+
         public IActionResult Listar()
         {
-            var lista = _prestamos.Listar();
+            var lista = _prestamos.Listar2();
 
             return View(lista);
         }

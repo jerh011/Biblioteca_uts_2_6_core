@@ -1,4 +1,4 @@
-﻿@model LibrosModel;
+﻿@model PrestamosModels;
 @{
     ViewData["Title"] = "Eliminar";
 }
@@ -7,14 +7,14 @@
         Eliminar Libro
     </div>
     <div class="card-body justyfy-content-center">
-        <form asp-action="Eliminar" asp-controller="Libros" method="post">
-            <input asp-for="No_Adquisicion" type="hidden" class="form-control" />
+        <form asp-action="Eliminar" asp-controller="Prestamos" method="post">
+            <input asp-for="IdPrestamo" type="hidden" class="form-control" />
             <div class="alert alert-danger" role="alert">
-                ¿Desea eliminar el  libro: @Html.DisplayTextFor(n=>n.Titulo)?
+                ¿Desea eliminar el Prestamo con la ID:@Html.DisplayTextFor(n=>n.Identificador) de usuario?
             </div>
             <div class="col-md-4 mb-3">
                 <button type="submit" class="btn btn-danger mb-3 btn-sm">Eliminar</button>
-                <a asp-action="Listar" asp-controller="Libros" class="btn btn-warning btn-sn">volver a la lista </a>
+                <a asp-action="Listar" asp-controller="Prestamos" class="btn btn-warning btn-sn">volver a la lista </a>
             </div>
         </form>
 

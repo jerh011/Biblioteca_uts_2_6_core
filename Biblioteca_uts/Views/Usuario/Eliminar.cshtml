@@ -10,7 +10,7 @@
         <form asp-action="Eliminar" asp-controller="Usuario" method="post">
             <input asp-for="Identificador" type="hidden" class="form-control" />
             <div class="alert alert-danger" role="alert">
-                ¿Desea eliminar el contacto:@Html.DisplayTextFor(n=>n.Nombres)?
+                ¿Desea eliminar el Usuario:@Html.DisplayTextFor(n=>n.Nombres)?
             </div>
             <div class="col-md-4 mb-3">
                 <button type="submit" class="btn btn-danger mb-3 btn-sm">Eliminar</button>

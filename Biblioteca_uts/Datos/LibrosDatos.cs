@@ -1,5 +1,4 @@
-﻿
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 using System.Data;
 
 using Biblioteca_uts.Models;
@@ -149,7 +148,7 @@ namespace Biblioteca_uts.Datos
                 {
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand("SP_Eliminar_Libro", conexion);
-                    cmd.Parameters.AddWithValue("No_Adquisicion",No_Adquisicion);
+                    cmd.Parameters.AddWithValue("No_Adquisicion", No_Adquisicion);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
                 }
