@@ -87,6 +87,33 @@ create procedure Sp_Prestamo
 
  select * from Prestamo
 --###########################################################################################--
+create trigger TR_CambiarAEstadoOcupado
+on Prestamo
+for INSERT
+as begin
+Declare @No_Adquisicion int
+select @No_Adquisicion =No_Adquisicion from inserted 
+ update dbo.Libro
+    SET Estatus = 'ocupado'
+    WHERE No_Adquisicion=@No_Adquisicion
+
+end
+go
+
+
+create trigger TR_CambiarAEstadoDisponible
+on Prestamo
+for Delete
+as begin
+Declare @No_Adquisicion int
+select @No_Adquisicion =No_Adquisicion from deleted
+ update dbo.Libro
+    SET Estatus = 'disponible'
+    WHERE No_Adquisicion=@No_Adquisicion
+
+end
+go
+
 
 
 
