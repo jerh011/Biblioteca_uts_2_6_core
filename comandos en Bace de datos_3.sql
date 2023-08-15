@@ -114,6 +114,20 @@ select @No_Adquisicion =No_Adquisicion from deleted
 end
 go
 
+--######################Cantidad de libros########-----
+alter trigger TR_CantidaLibros
+on Libro
+for INSERT
+as begin
+Declare @Cantidad int,@ibsen varchar(18)
+select @Cantidad=COUNT(*) from inserted
+where IBSN = @ibsen
+ update Libro
+    SET @Cantidad = @Cantidad
+   where IBSN = @ibsen
+
+end
+go
 
 
 
