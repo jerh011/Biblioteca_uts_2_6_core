@@ -132,5 +132,23 @@ where IBSN = @ibsen
 
 end
 go
+--###############################################################--
+create trigger TR_CantidaLibros_elimnados
+on Libro
+for Delete
+as begin
+Declare @Cantidad int,@ibsen varchar(18)
+
+select @ibsen=IBSN from  deleted
+
+select @Cantidad=COUNT(*) from  Libro
+where IBSN = @ibsen
+
+ update Libro
+    SET Cantidad = @Cantidad
+   where IBSN = @ibsen
+
+end
+go
 
 
